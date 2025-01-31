@@ -43,7 +43,6 @@ const ChatList = () => {
       unSub();
     };
   }, [currentUser.id]);
-  // console.log(chats);
 
   const handleSelectChat = async (chat) => {
     const userChats = chats.map((item) => {
@@ -68,7 +67,6 @@ const ChatList = () => {
   const filteredChats = chats.filter((chat) =>
     chat.user.username.toLowerCase().includes(searchInput.toLowerCase())
   );
-  console.log(filteredChats);
   return (
     <div className="chatList">
       <div className="search">
@@ -90,7 +88,6 @@ const ChatList = () => {
       </div>
 
       {filteredChats.map((chat) => {
-        console.log(chat);
         return (
           <div
             className="item"
@@ -121,7 +118,7 @@ const ChatList = () => {
         );
       })}
 
-      {addMode && <AddUser />}
+      {addMode && <AddUser setAddMode={setAddMode} />}
     </div>
   );
 };

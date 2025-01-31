@@ -14,12 +14,7 @@ import {
 import { db } from "../../../../lib/firebase";
 import { useSelector } from "react-redux";
 
-const q = query(collection(db, "cities"), where("capital", "==", true));
-
-const querySnapshot = await getDocs(q);
-
-const AddUser = () => {
-  const [mode, setMode] = useState(false);
+const AddUser = ({ setAddMode }) => {
   const [user, setUser] = useState(null);
   const { currentUser } = useSelector((state) => state.user);
   const handleSearch = async (e) => {
@@ -40,7 +35,6 @@ const AddUser = () => {
     } catch (error) {
       console.log(error.message);
     }
-    console.log(user);
   };
   const handleAdd = async () => {
     const chatRef = collection(db, "chats");
@@ -68,7 +62,7 @@ const AddUser = () => {
           updatedAt: Date.now(),
         }),
       });
-      console.log(newChatRef.id);
+      setAddMode(false);
     } catch (error) {
       console.log(error.message);
     }
