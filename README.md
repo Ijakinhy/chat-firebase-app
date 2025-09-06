@@ -49,6 +49,11 @@ Before you begin, ensure you have the following installed:
 
    ```env
    VITE_API_KEY=your_firebase_api_key_here
+   VITE_AUTH_DOMAIN=your_firebase_auth_domain_here
+   VITE_PROJECT_ID=your_firebase_project_id_here
+   VITE_STORAGE_BUCKET=your_firebase_storage_bucket_here
+   VITE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id_here
+   VITE_APP_ID=your_firebase_app_id_here
    ```
 
    **Firebase Setup Options:**
@@ -56,30 +61,16 @@ Before you begin, ensure you have the following installed:
    **Option A: Use the existing Firebase project**
 
    - The app is configured to use the project `ijakinhy-chart-app`
-   - Contact the project owner to get access to the Firebase API key
+   - The `.env` file is already created with the required configuration
+   - All Firebase services (Auth, Firestore, Storage) are enabled
 
    **Option B: Set up your own Firebase project**
 
    1. Go to [Firebase Console](https://console.firebase.google.com/)
    2. Create a new project or select an existing one
    3. Enable Authentication, Firestore, and Storage
-   4. Get your API key from Project Settings > General > Your apps
-   5. Update the `.env` file with your API key
-
-4. **Firebase Configuration**
-
-   If using your own Firebase project, update `src/lib/firebase.js` with your project configuration:
-
-   ```javascript
-   const firebaseConfig = {
-     apiKey: import.meta.env.VITE_API_KEY,
-     authDomain: "your-project.firebaseapp.com",
-     projectId: "your-project-id",
-     storageBucket: "your-project.appspot.com",
-     messagingSenderId: "your-sender-id",
-     appId: "your-app-id",
-   };
-   ```
+   4. Get your configuration from Project Settings > General > Your apps
+   5. Update the `.env` file with your Firebase configuration values
 
 ## Running the Application
 
@@ -129,18 +120,6 @@ chat-firebase-app/
 4. **Send Messages**: Type your message and press Enter or click Send
 5. **Share Files**: Click the attachment icon to share images or documents
 6. **View Details**: Click on user avatars to see profile information
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Support
 

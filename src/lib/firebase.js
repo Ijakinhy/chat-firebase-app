@@ -4,12 +4,12 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyChPJnIrHp0TbKDUTcLbSZrzJNAp6-f1fU",
-  authDomain: "ijakinhy-chart-app.firebaseapp.com",
-  projectId: "ijakinhy-chart-app",
-  storageBucket: "ijakinhy-chart-app.appspot.com",
-  messagingSenderId: "562838929700",
-  appId: "1:562838929700:web:ee4296a7faf78b4a4f73b1"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
