@@ -50,6 +50,7 @@ const Login = () => {
       toast.error(error.message);
     } finally {
       setLoading(false);
+      navigate("/");
     }
   };
 
@@ -69,6 +70,7 @@ const Login = () => {
       setLoading(false);
     } finally {
       setLoading(false);
+      navigate("/");
     }
   };
   return (
